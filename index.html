@@ -17,18 +17,13 @@
 	<a class="btn devis" href="mailto:contact@print-it.tld">Devis</a>
 </header>
 <main>
-	<div id="banner">
+	<div id="banner">	
 		<img id="ImageBaniere" class="banner-img" src="./assets/images/slideshow/slide1.jpg" alt="Banner Print-it">
-		<!-- <img id="FlecheGauche" class="arrow arrow_left" src="./assets/images/arrow_left.png" alt="flèche gauche" onclick="ChangeSlide(Gauche)"> -->
-		<img id="FlecheGauche" class="arrow arrow_left" src="./assets/images/arrow_left.png" alt="flèche gauche" onclick="Gauche()">
-		<img id="FlecheDroite" class="arrow arrow_right" src="./assets/images/arrow_right.png" alt="flèche droite" onclick="droite()">
-		<!-- <p id="texteBaniere" onclick="droite()">Impressions tous formats <span>en boutique et en ligne</span></p> -->
+		<img id="FlecheGauche" class="arrow arrow_left" src="./assets/images/arrow_left.png" alt="flèche gauche" onclick="ChangeSlide(-1)">
+		<img id="FlecheDroite" class="arrow arrow_right" src="./assets/images/arrow_right.png" alt="flèche droite" onclick="ChangeSlide(1)">
+		
 		<p id="TexteBanniere">Impressions tous formats <span>en boutique et en ligne</span></p>
 		<div class="dots">
-			<!-- <div class="dot dot_selected"></div>
-			<div class="dot"></div>
-			<div class="dot"></div>
-			<div class="dot"></div> -->
 		</div>
 	</div>
 	<section id="about-us" class="container">

@@ -37,44 +37,43 @@ for(var i=0; i<slides.length; i++){
 
 
 
+
 console.log(slides.length);
+	
+
 image=document.getElementById("ImageBaniere");
 texte=document.getElementById("TexteBanniere");
+let NumeroSlide=0;
 
-let CompteurDroite=0;
 
-function droite(){
-	console.log("clic droit");
-	document.querySelectorAll('.dots .dot')[CompteurDroite].classList.remove('dot_selected');
-	CompteurDroite=CompteurDroite+1;
+function ChangeSlide(sens){
+	console.log("clic " + sens);
 
-	image.src="./assets/images/slideshow/" + slides[CompteurDroite].image;
-	texte.innerHTML=slides[CompteurDroite].tagLine;
-	document.querySelectorAll('.dots .dot')[CompteurDroite].classList.add('dot_selected');
+	//supprimer la classe dot_selected pour pouvoir l'ajouter ensuite sur le prochain Div.
+	document.querySelectorAll('.dots .dot')[NumeroSlide].classList.remove('dot_selected');
+	
+	//permet de faire la boucle lorsqu'on arrive au dernier slide
+	NumeroSlide = NumeroSlide + sens;
+	if(NumeroSlide >= slides.length)
+		NumeroSlide = 0;
+
+	if(NumeroSlide < 0)
+		NumeroSlide = slides.length -1;
+
+
+	console.log(NumeroSlide);
+	image.src="./assets/images/slideshow/" + slides[NumeroSlide].image;
+	texte.innerHTML=slides[NumeroSlide].tagLine;
+	document.querySelectorAll('.dots .dot')[NumeroSlide].classList.add('dot_selected');
 }
 
 
-
-
-// Test fonction avec argument
-
-// let NumeroSlide=0;
-// let Gauche= -1;
-// let Droite= 1;
-
-// function ChangeSlide(sens){
-// 	console.log("clic");
-	
-// 	//permet de faire la boucle lorsqu'on arrive au dernier slide
-// 	NumeroSlide = NumeroSlide + sens;
-// 	if(NumeroSlide > slides.length -1)
-// 		NumeroSlide = 0;
-
-// 	if(NumeroSlide < 0)
-// 		NumeroSlide = slides.length -1;
-
-
-// 	console.log(NumeroSlide);
-// 	image.src="./assets/images/slideshow/" + slides[NumeroSlide].image;
-// 	texte.innerHTML=slides[CompteurDroite].tagLine;
-// }
+// EventListeners sur les flèches remplacé par le log dans la fonction
+	// var FlecheGauche = document.getElementById('FlecheGauche');
+	// FlecheGauche.addEventListener('click', function(){
+	// 	console.log('Clic Gauche')
+	// });
+	// var FlecheDroite = document.getElementById('FlecheDroite');
+	// FlecheDroite.addEventListener('click', function(){
+	// 	console.log('Clic Droit')
+	// });
